@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
+
 class MemberRepositoryTest {
 
     MemberRepository memberRepository = MemberRepository.getInstance();
@@ -25,7 +27,7 @@ class MemberRepositoryTest {
 
         // then
         Member findMember = memberRepository.findById(savedMember.getId());
-        Assertions.assertThat(findMember).isEqualTo(savedMember);
+        assertThat(findMember).isEqualTo(savedMember);
     }
 
     @Test
@@ -39,7 +41,7 @@ class MemberRepositoryTest {
 
         List<Member> result = memberRepository.findAll();
 
-        Assertions.assertThat(result.size()).isEqualTo(2);
-        Assertions.assertThat(result).contains(member1, member2);
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).contains(member1, member2);
     }
 }
